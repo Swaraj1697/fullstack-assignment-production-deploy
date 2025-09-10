@@ -39,23 +39,31 @@ function App() {
           }
         />
 
-        <Route
-          path="/login"
-          element={
-            <AuthLayout>
-              <Login setIsAuthenticated={setIsAuthenticated} setUser={setUser} />
-            </AuthLayout>
-          }
-        />
+<Route
+  path="/login"
+  element={
+    isAuthenticated ? (
+      <Navigate to="/" />   // 🔑 redirect if already logged in
+    ) : (
+      <AuthLayout>
+        <Login setIsAuthenticated={setIsAuthenticated} setUser={setUser} />
+      </AuthLayout>
+    )
+  }
+/>
 
-        <Route
-          path="/register"
-          element={
-            <AuthLayout>
-              <Register />
-            </AuthLayout>
-          }
-        />
+<Route
+  path="/register"
+  element={
+    isAuthenticated ? (
+      <Navigate to="/" />
+    ) : (
+      <AuthLayout>
+        <Register />
+      </AuthLayout>
+    )
+  }
+/>
 
         <Route
           path="/dashboard"
@@ -109,18 +117,18 @@ function App() {
           }
         />
 
-        <Route
-          path="/search"
-          element={
-            isAuthenticated ? (
-              <MainLayout>
-                <Search />
-              </MainLayout>
-            ) : (
-              <Navigate to="/" />
-            )
-          }
-        />
+<Route
+  path="/search"
+  element={
+    isAuthenticated ? (
+      <MainLayout>
+        <Search />
+      </MainLayout>
+    ) : (
+      <Navigate to="/login" />
+    )
+  }
+/>
       </Routes>
     </Router>
   );
