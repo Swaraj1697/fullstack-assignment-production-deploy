@@ -11,20 +11,15 @@ import Register from "./pages/Register";
 import AuthLayout from "./components/AuthLayout";
 import Search from "./pages/Search";
 import MainLayout from "./components/MainLayout";
+import { useAuth } from "./context/AuthContext";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState(null);
+  const { isAuthenticated, user, isLoading , setIsAuthenticated  , setUser} = useAuth();
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    const savedUser = localStorage.getItem("user");
   
-    if (token && savedUser) {
-      setIsAuthenticated(true);
-      setUser(JSON.parse(savedUser));
-    }
-  }, []);
+  if (isLoading) {
+    return <div>Loading...</div>; // or a spinner
+  }
 
   return (
     <Router>
