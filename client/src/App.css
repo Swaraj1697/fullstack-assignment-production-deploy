@@ -1,0 +1,8 @@
+
+.page-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    /* space from top + center horizontally */
+    padding: 20px;
+    text-align: center;
+}

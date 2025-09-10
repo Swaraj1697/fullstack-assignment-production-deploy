@@ -1,0 +1,104 @@
+{
+  "recommendations": [
+    {
+      "adult": false,
+      "backdrop_path": "/ZtcGMc204JsNqfjS9lU6udRgpo.jpg",
+      "genre_ids": [
+        28,
+        18
+      ],
+      "id": 911430,
+      "original_language": "en",
+      "original_title": "F1",
+      "overview": "Racing legend Sonny Hayes is coaxed out of retirement to lead a struggling Formula 1 team—and mentor a young hotshot driver—while chasing one more chance at glory.",
+      "popularity": 305.451,
+      "poster_path": "/9PXZIUsSDh4alB80jheWX4fhZmy.jpg",
+      "release_date": "2025-06-25",
+      "title": "F1",
+      "video": false,
+      "vote_average": 7.812,
+      "vote_count": 1894
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/ot2LoRyfp73Mswc9Y5KrDJYcyU1.jpg",
+      "genre_ids": [
+        28,
+        53,
+        18
+      ],
+      "id": 1119878,
+      "original_language": "en",
+      "original_title": "Ice Road: Vengeance",
+      "overview": "Big rig ice road driver Mike McCann travels to Nepal to scatter his late brother’s ashes on Mt. Everest. While on a packed tour bus traversing the deadly 12,000 ft. terrain of the infamous Road to the Sky, McCann and his mountain guide encounter a group of mercenaries and must fight to save themselves, the busload of innocent travelers, and the local villagers’ homeland.",
+      "popularity": 180.2769,
+      "poster_path": "/cQN9rZj06rXMVkk76UF1DfBAico.jpg",
+      "release_date": "2025-06-27",
+      "title": "Ice Road: Vengeance",
+      "video": false,
+      "vote_average": 6.667,
+      "vote_count": 265
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/2SdwooNx8Ny8BfruWsbDBbaQpJT.jpg",
+      "genre_ids": [
+        53,
+        80,
+        18
+      ],
+      "id": 1242434,
+      "original_language": "en",
+      "original_title": "Highest 2 Lowest",
+      "overview": "When a titan music mogul, widely known as having the \"best ears in the business\", is targeted with a ransom plot, he is jammed up in a life-or-death moral dilemma.",
+      "popularity": 167.4948,
+      "poster_path": "/kOzwIr0R7WhaFgoYUZFLPZA2RBZ.jpg",
+      "release_date": "2025-08-14",
+      "title": "Highest 2 Lowest",
+      "video": false,
+      "vote_average": 6.322,
+      "vote_count": 90
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/6nCy4OrV7gxhDc3lBSUxkNALPej.jpg",
+      "genre_ids": [
+        28,
+        36,
+        18,
+        12,
+        10752
+      ],
+      "id": 1051486,
+      "original_language": "en",
+      "original_title": "Stockholm Bloodbath",
+      "overview": "In 1520, the notorious and power-hungry Danish King Christian II is determined to seize the Swedish crown from Sten Sture, no matter what it takes. Meanwhile, sisters Freja and Anne make a solemn promise to seek revenge on the men who brutally murdered their family. Everything comes to a head in the heart of Stockholm, where the sisters are drawn into a ruthless political struggle between Sweden and Denmark that culminates in a mass execution, presided over by the mad King \"Christian the Tyrant,\" known as the Stockholm Bloodbath.",
+      "popularity": 167.4243,
+      "poster_path": "/tzXOB8nxO70SfSbOhrYcY94x6MI.jpg",
+      "release_date": "2024-01-19",
+      "title": "Stockholm Bloodbath",
+      "video": false,
+      "vote_average": 6.2,
+      "vote_count": 27
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/7RY5uiuM97FqS5qvPHG2XW2ZruY.jpg",
+      "genre_ids": [
+        18
+      ],
+      "id": 1024592,
+      "original_language": "en",
+      "original_title": "God's Not Dead: In God We Trust",
+      "overview": "In a time of profound political, civil, and spiritual turmoil, Reverend David Hill grapples with the crucial question: Does God still have a place in politics? Compelled to enter a congressional race after the sudden death of a favored incumbent, David faces off against state senator Peter Kane, a formidable opponent determined to push religion out of the public square and cause greater divide.",
+      "popularity": 121.4783,
+      "poster_path": "/eb0KuIknUNKMunKTZQMn8hKyM7l.jpg",
+      "release_date": "2024-09-12",
+      "title": "God's Not Dead: In God We Trust",
+      "video": false,
+      "vote_average": 4.8,
+      "vote_count": 14
+    }
+  ],
+  "blurb": "Because you loved *Fight Club*, we think you’ll enjoy these Drama movies."
+}
