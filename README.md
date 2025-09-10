@@ -1,0 +1,1 @@
+This project consists of a fulltsack assignment. The frontend has been built using React as the Framework and Javascript as the language for writing the code. The databases have been implemented using MongoDB . The APIs have been implemented using node express. The code is now deployed to onRender for production.
