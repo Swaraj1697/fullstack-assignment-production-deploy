@@ -1,3 +1,8 @@
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { useState } from "react";
+
+
 export default function Navbar() {
   const { isAuthenticated, setIsAuthenticated, setUser, isLoading, user } = useAuth();
   const [query, setQuery] = useState("");
@@ -72,5 +77,6 @@ export default function Navbar() {
   {/* Right spacer (keeps center truly centered) */}
   <div />
 </nav>
+
   );
 }
