@@ -2,7 +2,7 @@ import { useState } from "react";
 import { addOrUpdateRating } from "../api";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { set } from "mongoose";
+
 
 export default function MovieCard({ movie, userId }) {
   const [rating, setRating] = useState("");
