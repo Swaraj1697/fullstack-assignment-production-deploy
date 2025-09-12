@@ -2,6 +2,7 @@ import { useState } from "react";
 import { addOrUpdateRating } from "../api";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { set } from "mongoose";
 
 export default function MovieCard({ movie, userId }) {
   const [rating, setRating] = useState("");
@@ -11,6 +12,7 @@ export default function MovieCard({ movie, userId }) {
     try {
       await addOrUpdateRating(user.id, movie.id, parseInt(rating));
       alert("Rating saved!");
+      setRating("");
     } catch (err) {
       console.error("Error saving rating:", err.message);
     }
