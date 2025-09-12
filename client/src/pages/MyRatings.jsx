@@ -24,7 +24,7 @@ export default function MyRatings() {
       {ratings.map((r) => (
         <div key={r._id}>
           <p>
-            Movie ID: {r.movieId} — Rating: {r.rating}
+            Movie Name: {r.movieTitle} — Rating: {r.rating}
           </p>
         </div>
       ))}
