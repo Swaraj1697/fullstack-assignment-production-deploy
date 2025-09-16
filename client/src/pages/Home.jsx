@@ -3,11 +3,13 @@ import axios from "axios";
 import MovieCard from "../components/MovieCard";
 import Search from "./Search";
 import { useAuth } from "../context/AuthContext";
+import API from "../api";
 
 function Home() {
   const [movies, setMovies] = useState([]);
   const [isSearchActive, setIsSearchActive] = useState(false);
   const { user } = useAuth();
+  const [ratings, setRatings] = useState([]);
 
   const fetchPopularMovies = async () => {
     try {
@@ -23,8 +25,15 @@ function Home() {
     }
   };
 
+  const fetchRatings = async () => {
+    if (!user) return;
+    const res = await API.get(`/ratings/${user.id}`);
+    setRatings(res.data); // [{movieId, liked, rating}, ...]
+  };
+
   useEffect(() => {
     fetchPopularMovies();
+    fetchRatings();
   }, []);
 
   const handleSearchResults = (results) => {
@@ -33,9 +42,25 @@ function Home() {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        padding: "30px",
+        background: "#f4f6f9",
+        minHeight: "100vh",
+      }}
+    >
       {/* Page title */}
-      <h1 style={{ marginBottom: "20px", textAlign: "center" }}>🎬 Movies</h1>
+      <h1
+        style={{
+          marginBottom: "20px",
+          textAlign: "center",
+          fontSize: "2.5rem",
+          color: "#333",
+          fontWeight: "bold",
+        }}
+      >
+        🎬 Discover Movies
+      </h1>
 
       {/* Search section */}
       <div style={{ marginBottom: "30px", textAlign: "center" }}>
@@ -45,15 +70,17 @@ function Home() {
             style={{
               padding: "10px 20px",
               fontSize: "16px",
-              borderRadius: "5px",
+              borderRadius: "6px",
               border: "none",
               cursor: "pointer",
               backgroundColor: "#ff4500",
               color: "white",
               marginBottom: "15px",
+              boxShadow: "0px 4px 6px rgba(0,0,0,0.1)",
+              transition: "0.3s",
             }}
           >
-            Back to Home Page
+            ⬅ Back to Popular
           </button>
         )}
 
@@ -66,14 +93,23 @@ function Home() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-          gap: "20px",
-          justifyItems: "center",
+          gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+          gap: "25px",
         }}
       >
-        {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} userId={user?.id} />
-        ))}
+        {movies.map((movie) => {
+          const userRating = ratings.find((r) => r.movieId === movie.id);
+
+          return (
+            <MovieCard
+              key={movie.id}
+              movie={movie}
+              userId={user?.id}
+              initialLiked={userRating?.liked ?? null}
+              initialRating={userRating?.rating ?? ""}
+            />
+          );
+        })}
       </div>
     </div>
   );

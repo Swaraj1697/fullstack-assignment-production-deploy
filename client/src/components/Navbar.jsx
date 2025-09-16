@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useState } from "react";
 
-
 export default function Navbar() {
   const { isAuthenticated, setIsAuthenticated, setUser, isLoading, user } = useAuth();
   const [query, setQuery] = useState("");
@@ -18,65 +17,94 @@ export default function Navbar() {
   const handleLogout = () => {
     setIsAuthenticated(false);
     setUser(null);
-    localStorage.removeItem("token"); 
+    localStorage.removeItem("token");
     localStorage.removeItem("user");
     navigate("/login", { replace: true });
   };
 
-  if (isLoading) return null; 
+  if (isLoading) return null;
   if (!isAuthenticated) return null;
 
   return (
-<nav style={{
-  padding: "10px 20px",
-  background: "#f5f5f5",
-  display: "grid",
-  gridTemplateColumns: "auto 1fr auto", // left | center | spacer
-  alignItems: "center",
-  gap: "10px"
-}}>
-  {/* Left: links + logout button */}
-  <div style={{
-    display: "flex",
-    gap: "10px",
-    alignItems: "center",
-    flexWrap: "wrap"          // wrap if viewport gets very small
-  }}>
-    <Link to="/">Home</Link>
-    <Link to="/my-ratings">My Ratings</Link>
-    <Link to="/recommendations">For You</Link>
-    <Link to="/dashboard">Dashboard</Link>
+    <nav
+      style={{
+        padding: "12px 24px",
+        background: "linear-gradient(90deg, #1e3c72, #2a5298)", // nice blue gradient
+        display: "grid",
+        gridTemplateColumns: "auto 1fr auto",
+        alignItems: "center",
+        boxShadow: "0 2px 6px rgba(0,0,0,0.15)",
+      }}
+    >
+      {/* Left: links + logout button */}
+      <div
+        style={{
+          display: "flex",
+          gap: "15px",
+          alignItems: "center",
+          flexWrap: "wrap",
+        }}
+      >
+        {[
+          { to: "/", label: "Home" },
+          { to: "/my-ratings", label: "My Ratings" },
+          { to: "/recommendations", label: "For You" },
+          { to: "/dashboard", label: "Dashboard" },
+        ].map((link) => (
+          <Link
+            key={link.to}
+            to={link.to}
+            style={{
+              color: "#fff",
+              textDecoration: "none",
+              fontWeight: 500,
+              transition: "color 0.2s ease",
+            }}
+            onMouseEnter={(e) => (e.target.style.color = "#ffd369")}
+            onMouseLeave={(e) => (e.target.style.color = "#fff")}
+          >
+            {link.label}
+          </Link>
+        ))}
 
-    {/* Logout moved here with links */}
-    <button onClick={handleLogout} style={{
-      padding: "5px 10px",
-      cursor: "pointer",
-      borderRadius: "5px",
-      border: "1px solid #ccc",
-      background: "#fff",
-      whiteSpace: "nowrap"
-    }}>
-      Logout
-    </button>
-  </div>
+        <button
+          onClick={handleLogout}
+          style={{
+            padding: "6px 14px",
+            cursor: "pointer",
+            borderRadius: "20px",
+            border: "none",
+            background: "#ff4d4d",
+            color: "#fff",
+            fontWeight: "bold",
+            transition: "background 0.2s ease",
+          }}
+          onMouseEnter={(e) => (e.target.style.background = "#e63946")}
+          onMouseLeave={(e) => (e.target.style.background = "#ff4d4d")}
+        >
+          Logout
+        </button>
+      </div>
 
-  {/* Center: logged-in text (stays centered) */}
-  <h2 style={{
-    margin: 0,
-    fontSize: "16px",
-    fontWeight: "normal",
-    justifySelf: "center",
-    whiteSpace: "nowrap",
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-    minWidth: 0                // allow ellipsis in tight spaces
-  }}>
-    Logged In as: {user.name}
-  </h2>
+      {/* Center: logged-in text */}
+      <h2
+        style={{
+          margin: 0,
+          fontSize: "16px",
+          fontWeight: "normal",
+          justifySelf: "center",
+          color: "#f1f1f1",
+          whiteSpace: "nowrap",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          minWidth: 0,
+        }}
+      >
+        Logged In as: <span style={{ fontWeight: "600", color: "#ffd369" }}>{user.name}</span>
+      </h2>
 
-  {/* Right spacer (keeps center truly centered) */}
-  <div />
-</nav>
-
+      {/* Right spacer */}
+      <div />
+    </nav>
   );
 }
